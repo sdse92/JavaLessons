@@ -8,7 +8,7 @@ public class task5 {
         int credit = 2000000;
         double percent = 0.17;
         int time = 25;
-        double pereplata = (credit * percent) * 25;
+        double pereplata = (credit * percent) * time;
         System.out.println("Переплата = " + pereplata);
     }
 }
