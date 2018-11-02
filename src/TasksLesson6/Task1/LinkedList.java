@@ -8,10 +8,11 @@ public class LinkedList implements Stack {
     private int size;
 
     public void print(){
-        Object j = first;
-        while (j != null){
-            System.out.println(j + j.getName());
-            j = j.getNext();
+        Object j = current;
+        Element el = (Element) j;
+        while (el != null){
+            System.out.println(el.toString() + el.getName());
+            el = (Element) el.getNext();
         }
     }
 
@@ -39,4 +40,7 @@ public class LinkedList implements Stack {
     public void pop() {
 
     }
+
+
+
 }

@@ -32,4 +32,13 @@ public class Element {
     public void setNext(Object next) {
         this.next = next;
     }
+
+    @Override
+    public String toString() {
+        return "Element{" +
+                "name=" + name +
+                ", index=" + index +
+                ", next=" + next +
+                '}';
+    }
 }
