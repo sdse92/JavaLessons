@@ -3,7 +3,7 @@ package TasksLesson6.Task1;
 public class Element {
     private Object name;
     private int index;
-    private Object next;
+    private Element next;
 
     public Element(Object name) {
         this.name = name;
@@ -25,11 +25,11 @@ public class Element {
         this.index = index;
     }
 
-    public Object getNext() {
+    public Element getNext() {
         return next;
     }
 
-    public void setNext(Object next) {
+    public void setNext(Element next) {
         this.next = next;
     }
 
@@ -38,7 +38,6 @@ public class Element {
         return "Element{" +
                 "name=" + name +
                 ", index=" + index +
-                ", next=" + next +
                 '}';
     }
 }
