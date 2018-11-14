@@ -19,7 +19,6 @@ public class Task1 {
             sb2.append(arr[n]).append(c);
             n++;
             }
-        System.out.println(Arrays.toString(arr));
         System.out.println(sb1.toString());
         System.out.println(sb2.toString());
         }

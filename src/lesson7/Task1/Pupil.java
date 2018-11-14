@@ -11,27 +11,16 @@ public class Pupil {
     ExamResult exres = new ExamResult();
 
     public void setExams(String[] ex, int[] marks){
-        exres.ex = ex;
-        exres.marks = marks;
+//        exres.ex = ex;
+//        exres.marks = marks;
     }
 
     class ExamResult{
-        String ex[];
-        int marks[];
-        String result[];
+        String ex;
+        int marks;
+        String [] result;
 
-        public result(){
-            marks = new int[];
 
-        }
-
-        public void setEx(String[] ex) {
-            this.ex = ex;
-        }
-
-        public void setMarks(int[] marks) {
-            this.marks = marks;
-        }
     }
 
     @Override

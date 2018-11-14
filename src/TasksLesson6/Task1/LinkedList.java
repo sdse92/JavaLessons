@@ -6,6 +6,7 @@ public class LinkedList implements Stack, Queue, List {
     private Element last;
     private Element current;
     private int size;
+    Integer d;
 
     public void print(){
         Element el = last;
