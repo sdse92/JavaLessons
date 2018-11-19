@@ -6,11 +6,16 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws SQLException {
         User user = new User();
-        Scanner s = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         while (true){
-
-            if (s.nextLine().equals("exit")) { break; }
-            if (s.nextLine().equals("create new user")){ user.add(); }
+            String s = sc.nextLine();
+            if (s.equals("exit")) { break; }
+            if (s.equals("create new user")){ user.add(); }
+            System.out.println(user.isStatus());
+            if (user.isStatus() == false){
+                System.out.println("Войдите в учетную запись");
+                user.login(s);
+            }
         }
     }
 }
