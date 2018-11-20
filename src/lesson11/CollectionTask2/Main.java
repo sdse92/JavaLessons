@@ -15,7 +15,7 @@ public class Main {
                 task.put(s);
                 counter++;
             }
-            if (counter >= 20) break;
+            if (counter > 3) break;
         }
     }
 }

@@ -24,12 +24,10 @@ public class List {
     ArrayList<Integer> list3 = new ArrayList<>();
 
     public void put(String s){
-        while (true){
             list.add(Integer.parseInt(s));
             if (Integer.parseInt(s)%3 == 0) list1.add(Integer.parseInt(s));
             else if (Integer.parseInt(s)%2 == 0) list2.add(Integer.parseInt(s));
             else list3.add(Integer.parseInt(s));
-        }
     }
 
     public void printList(){
