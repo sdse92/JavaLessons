@@ -27,10 +27,27 @@ public class User {
         return login;
     }
 
-    public void login(String login){
+    public void login(String userlogin) throws SQLException, ClassNotFoundException {
         MySQL sql = new MySQL();
-        sql.setLogin(login);
+        sql.setLogin(userlogin);
+        String getLogin = sql.getLogin();
+        if (getLogin.equals(userlogin)) {
+            System.out.println("Введите пароль");
+            String pass = s.nextLine();
+            sql.setPass(pass);
+            String getPass = sql.getPass();
+            if (getPass.equals(pass)){
+                status = true;
+                login = getLogin;
+            }else{
+                System.out.println("Вы ввели не верный пароль");
+            }
+        }else System.out.println("Пользователя с таким логином не существует");
+        return;
+    }
 
+    public void logout(){
+        status = false;
     }
 
     public boolean isStatus() { return status; }

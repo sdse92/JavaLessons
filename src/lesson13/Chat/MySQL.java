@@ -35,17 +35,45 @@ public class MySQL {
     }
 
     //запрос логина
-    public static void getLogin() throws SQLException, ClassNotFoundException {
-        String str;
-        String sql = "SELECT login FROM user WHERE login = login;";
+    public String getLogin() throws SQLException, ClassNotFoundException {
+        String str = null;
+        //String sql = "SELECT login FROM user WHERE login = '" + login + "';";
+        String sql = "SELECT * FROM user;";
         Class.forName("com.mysql.cj.jdbc.Driver");
         try (Connection connection = DriverManager.getConnection(connectUrl,user, password)){
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()){
                 str = resultSet.getString("login");
-                System.out.println(str);
             }
-        }
+        } return str;
+    }
+
+    //запрос пароля
+    public String getPass() throws SQLException, ClassNotFoundException {
+        String str = null;
+        String sql = "SELECT password FROM user WHERE login = '" + login + "';";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        try (Connection connection = DriverManager.getConnection(connectUrl,user, password)){
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+                str = resultSet.getString("password");
+            }
+        } return str;
+    }
+
+    //проверка есть в базе пользователи или нет
+    public String getUsers() throws SQLException, ClassNotFoundException {
+        String str = null;
+        String sql = "SELECT login FROM user;";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        try (Connection connection = DriverManager.getConnection(connectUrl,user, password)){
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+                str = resultSet.getString("login");
+            }
+        } return str;
     }
 }
