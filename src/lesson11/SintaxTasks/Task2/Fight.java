@@ -1,4 +1,4 @@
-package lesson11.Task2;
+package lesson11.SintaxTasks.Task2;
 
 public class Fight {
     private Cat cat1;

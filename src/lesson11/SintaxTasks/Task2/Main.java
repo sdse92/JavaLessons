@@ -1,4 +1,4 @@
-package lesson11.Task2;
+package lesson11.SintaxTasks.Task2;
 
 public class Main {
     public static void main(String[] args) {

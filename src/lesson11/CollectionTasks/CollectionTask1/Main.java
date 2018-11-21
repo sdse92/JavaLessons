@@ -1,4 +1,4 @@
-package lesson11.CollectionTask1;
+package lesson11.CollectionTasks.CollectionTask1;
 
 import java.util.ArrayList;
 import java.util.Scanner;

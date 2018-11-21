@@ -1,15 +1,9 @@
-package lesson11.Task5;
+package lesson11.SintaxTasks.Task5;
 
-public class Cat implements Eat, Eatable, Movable {
-
+public class Dog implements Movable, Eat {
     @Override
     public void eat() {
         System.out.println("I can eat");
-    }
-
-    @Override
-    public void eatable() {
-        System.out.println("I can be eaten");
     }
 
     @Override

@@ -1,4 +1,4 @@
-package lesson11.Task2;
+package lesson11.SintaxTasks.Task2;
 /*
 Создать класс Cat.
 У кота должно быть имя (name, String),

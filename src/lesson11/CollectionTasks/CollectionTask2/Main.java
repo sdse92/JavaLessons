@@ -1,4 +1,4 @@
-package lesson11.CollectionTask2;
+package lesson11.CollectionTasks.CollectionTask2;
 
 import java.util.Scanner;
 

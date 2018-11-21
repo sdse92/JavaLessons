@@ -1,4 +1,4 @@
-package lesson11.Task5;
+package lesson11.SintaxTasks.Task5;
 
 public interface Movable {
     void movable();

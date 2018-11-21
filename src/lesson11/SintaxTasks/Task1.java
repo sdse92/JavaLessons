@@ -1,4 +1,4 @@
-package lesson11;
+package lesson11.SintaxTasks;
 
 import java.util.Scanner;
 /*

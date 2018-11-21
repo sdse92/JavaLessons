@@ -1,6 +1,12 @@
-package lesson11.Task5;
+package lesson11.SintaxTasks.Task5;
 
-public class Mouse implements Movable, Eatable {
+public class Cat implements Eat, Eatable, Movable {
+
+    @Override
+    public void eat() {
+        System.out.println("I can eat");
+    }
+
     @Override
     public void eatable() {
         System.out.println("I can be eaten");

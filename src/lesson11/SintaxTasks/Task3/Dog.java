@@ -1,4 +1,4 @@
-package lesson11.Task3;
+package lesson11.SintaxTasks.Task3;
 /*
 Создать класс Dog с пятью конструкторами:
 - Имя,

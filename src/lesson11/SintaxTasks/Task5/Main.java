@@ -1,4 +1,4 @@
-package lesson11.Task5;
+package lesson11.SintaxTasks.Task5;
 /*
 Создать классы Dog, Cat и Mouse.
 Реализовать интерфейсы (Movable, Eatable, Eat ) в классах, учитывая что:

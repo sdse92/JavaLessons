@@ -1,4 +1,4 @@
-package lesson11.Task4;
+package lesson11.SintaxTasks.Task4;
 
 public class Body {
 

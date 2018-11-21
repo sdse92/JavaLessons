@@ -1,7 +1,6 @@
-package lesson11.CollectionTask2;
+package lesson11.CollectionTasks.CollectionTask2;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /*
 Написать программу со следующим функционалом:

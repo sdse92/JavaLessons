@@ -1,4 +1,4 @@
-package lesson11.Task4;
+package lesson11.SintaxTasks.Task4;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
