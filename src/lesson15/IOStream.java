@@ -155,13 +155,13 @@ public class IOStream {
         //чтение по байту
         File file = new File("file.txt");
         File file2 = new File("file2.txt");
-        System.out.println(ioStream.readByte(file));
+//        System.out.println(ioStream.readByte(file));
 //        ioStream.readByteArray(file, Charset.forName("UTF-8"));
 //        ioStream.writeToFile(file,false,Charset.forName("UTF-8"));
 //        ioStream.writeWithBuffer(file);
 
-//        File[] files = {file, file2};
-//        ioStream.readFromTwoFiles(files, Charset.forName("UTF-8"));
+        File[] files = {file, file2};
+        ioStream.readFromTwoFiles(files, Charset.forName("UTF-8"));
 
 //        try (OutputStream out = new FileOutputStream(file)){
 //            dataOutput(out);
