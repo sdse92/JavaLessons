@@ -11,13 +11,13 @@ public class Main {
         File file = new File("wp.txt");
         int processCount = Runtime.getRuntime().availableProcessors();
         FileReader fileReader = new FileReader(file, processCount);
-        List<String> wordList = fileReader.read();
+        List<String> wordList = fileReader.readFile();
         BlockingQueue<String> word = new ArrayBlockingQueue<>(wordList.size(), true, wordList);
-        WordStorage wordStorage = new WordStorage(word, wordList);
         List<Thread> threads = new ArrayList<>();
+        Process process = new Process(word, wordList);
 
         for (int i = 0; i < processCount; i++){
-            threads.add(new Thread(new Worker(wordStorage)));
+            threads.add(new Thread(new Worker(process)));
         }
 
         for (int i = 0; i < processCount; i++){
@@ -31,6 +31,6 @@ public class Main {
                 e.printStackTrace();
             }
         }
-        wordStorage.printTop();
+        process.printResult();
     }
 }

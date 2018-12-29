@@ -3,14 +3,14 @@ package lesson22.Task1_Top100;
 
 public class Worker implements Runnable{
 
-    WordStorage wordStorage;
+    Process process;
 
-    public Worker(WordStorage wordStorage) {
-        this.wordStorage = wordStorage;
+    public Worker(Process process) {
+        this.process = process;
     }
 
     @Override
     public void run() {
-        wordStorage.getWord();
+        process.workerTask();
     }
 }

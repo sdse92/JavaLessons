@@ -41,22 +41,25 @@ public class FileReader {
         return word;
     }
 
-//    public List<String> readFile(){
-//        List<String> list = null;
-//        int count = 0;
-//        int marker = 1;
-//        try {
-//            list = Files.readAllLines(file.toPath());
-//            for (String s : list){
-//                if (list.size()*marker/stop == count){
-//                    list.add("STOP");
-//                    marker++;
-//                }
-//                count++;
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return list;
-//    }
+    public List<String> readFile(){
+        List<String> list = null;
+        List<String> lines = new ArrayList<>();
+        int count = 0;
+        int marker = 1;
+        try {
+            list = Files.readAllLines(file.toPath());
+            for (String s : list){
+                lines.add(s);
+                if (list.size()*marker/stop == count){
+                    lines.add("STOP");
+                    marker++;
+                }
+                count++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        lines.add("STOP");
+        return lines;
+    }
 }
