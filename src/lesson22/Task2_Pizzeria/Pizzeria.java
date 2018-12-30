@@ -8,7 +8,7 @@ public class Pizzeria {
     private BlockingQueue<String> kitchenQueue = new LinkedBlockingQueue<String>();
     private BlockingQueue<String> readyQueue = new LinkedBlockingQueue<String>();
 
-    public Pizzeria(){
+    public void open(){
         for (int i = 1; i <= 6; i++) {
             new Thread(new Client()).start();
         }
@@ -40,10 +40,10 @@ public class Pizzeria {
         public void run() {
             String order;
             try {
-                if (kitchenQueue.isEmpty()){
-                    Thread.sleep(1000);
+                if (orderQueue.isEmpty()){
+                    Thread.sleep(2000);
                 }
-                while (!kitchenQueue.isEmpty()){
+                while (!orderQueue.isEmpty()){
                     order = orderQueue.take();
                     System.out.println("Waiter take " + order);
                     kitchenQueue.put(order);
@@ -64,7 +64,7 @@ public class Pizzeria {
             String takeOrder;
             try {
                 if (kitchenQueue.isEmpty()){
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                 }
                 while (kitchenQueue.size() > 0 || !orderQueue.isEmpty()){
                     takeOrder = kitchenQueue.take();
