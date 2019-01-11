@@ -16,7 +16,7 @@ public class Client {
             this.phoneSecond = phone.substring(11);
         }else {
             this.phoneFirst = phone;
-            this.phoneSecond = null;
+            this.phoneSecond = "";
         }
         this.ref = ref;
         this.site = site;

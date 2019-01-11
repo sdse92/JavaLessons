@@ -42,28 +42,31 @@ public class GetRequests {
         return result;
     }
 
-    public void Result(){
+    public void Result(long timeFrom, long timeTo){
+//        String URL = "http://new.welcome-tracker.ru/api.php?api=71e5367021e4c6cf091f34434e5e9458&from="
+//                + timer.getTimeFrom() +  "&to=" + timer.getTimeTo();
         String URL = "http://new.welcome-tracker.ru/api.php?api=71e5367021e4c6cf091f34434e5e9458&from="
-                + timer.getTimeFrom() +  "&to=" + timer.getTimeTo();
+                + timeFrom +  "&to=" + timeTo;
         String result = getHTMLrequest(URL);
+        if (!result.equals("")){
         String element = null;
         String[] delimit = result.split("},");
-        for (int i = 0; i < delimit.length; i++){
+        for (int i = 0; i < delimit.length; i++) {
             StringBuilder sb = new StringBuilder();
-            element = delimit[i].replaceAll("}","");
+            element = delimit[i].replaceAll("}", "");
             sb = sb.append(element).append("}");
             element = sb.toString();
             innerRequestList.add(element);
             createClients(element);
-//            System.out.println(element);
-//            System.out.println(innerRequestList.get(i));
+        }
         }
     }
 
     public void createClients(String s){
         if (s != null){
-                try {
-                    JSONObject json = new JSONObject(s);
+//                try {
+//                    JSONObject json = new JSONObject(s);
+                    JsonParser json = new JsonParser(s);
 //                    System.out.println(json);
                     String phone = phone(json.get("phone").toString());
                     String ref = ref(json.get("ref").toString());
@@ -73,30 +76,27 @@ public class GetRequests {
                     clients.put(client.getPhoneFirst(), client);
                     clientsList.add(client);
 //                    System.out.println(clients.get(phone));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
             }
     }
 
     private String phone(String s){
         String rez = s.replaceAll("pP","").replaceAll("\\D","");
         if (rez.length() < 11){
-            rez = null;
+            rez = "";
         }
         return rez;
     }
 
     private String ref(String s){
         String rez = s;
-        if (rez.equals("")){
-            rez = null;
-        }
         return rez;
     }
 
     private String site(String s){
-        String rez = null;
+        String rez = "";
         if (s.contains("http://petrobani.ru/")){
             rez = "http://petrobani.ru/";
         }
@@ -110,11 +110,11 @@ public class GetRequests {
     }
 
     public void printClients(){
-        System.out.println(clients.isEmpty());
+        System.out.println(clients);
     }
 
     public void printClientList(){
-        System.out.println(clientsList.isEmpty());
+        System.out.println(clientsList);
     }
 
     public ArrayList<Client> getClientsList() {
