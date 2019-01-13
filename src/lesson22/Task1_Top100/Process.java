@@ -15,37 +15,18 @@ public class Process {
         this.linesList = linesList;
     }
 
-    public void workerTask() {
+    public void workerTask(){
+        String line;
         try {
-            String line;
-            List<String> threadLines = new ArrayList<>();
-            String [] words = null;
-            while (!(line = lines.take()).equals(stop)){
-                threadLines.add(line);
-                for (String localLine : threadLines){
-                    words = localLine.toLowerCase().replaceAll("pP", "").trim().split(" ");
-                    for (String word : words){
-                        if (word.length() > 0){
-                            if (wordCounter.isEmpty()){
-                                wordCounter.put(word, 0);
-                            }else {
-                                if (wordCounter.containsKey(word)){
-                                    wordCounter.put(word, wordCounter.get(word) + 1);
-                                }else{
-                                    wordCounter.put(word, 0);
-                                }
-                            }
-                        }
-                    }
-                }
+            while (!(line = lines.take()).equals(stop)) {
+            String [] words = line.toLowerCase().replaceAll("pP", "").trim().split(" ");
+            for (String word : words){
+                if (word.length() > 0) wordCounter.merge(word, 1, (a, b) -> a + b);
             }
-//            System.out.println(threadLines);
-//            System.out.println(Arrays.toString(words));
-//            System.out.println(wordCounter);
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
     }
 
     public void printResult(){
