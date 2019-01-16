@@ -14,6 +14,10 @@ public class Accaunt {
         this.money = money;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public int getMoney() {
         return money;
     }
