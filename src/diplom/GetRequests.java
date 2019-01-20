@@ -14,10 +14,7 @@ import java.util.Map;
 
 public class GetRequests {
 
-    private ArrayList<String> innerRequestList = new ArrayList<>();
     private ArrayList<Client> clientsList = new ArrayList<>();
-    private Map<String, Client> clients = new HashMap<>();
-
     Timer timer = new Timer();
 
     public String getHTMLrequest(String urlToRead) {
@@ -56,7 +53,6 @@ public class GetRequests {
             element = delimit[i].replaceAll("}", "");
             sb = sb.append(element).append("}");
             element = sb.toString();
-            innerRequestList.add(element);
             createClients(element);
         }
         }
@@ -64,8 +60,6 @@ public class GetRequests {
 
     public void createClients(String s){
         if (s != null){
-//                try {
-//                    JSONObject json = new JSONObject(s);
                     JsonParser json = new JsonParser(s);
 //                    System.out.println(json);
                     String phone = phone(json.get("phone").toString());
@@ -73,12 +67,7 @@ public class GetRequests {
                     String site = site(json.get("site").toString());
                     Client client = new Client(phone, ref, site);
 //                    System.out.println(client);
-                    clients.put(client.getPhoneFirst(), client);
                     clientsList.add(client);
-//                    System.out.println(clients.get(phone));
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
             }
     }
 
@@ -96,25 +85,18 @@ public class GetRequests {
     }
 
     private String site(String s){
+        System.out.println(s);
         String rez = "";
-        if (s.contains("http://petrobani.ru/")){
+        if (s.contains("petrobani.ru")){
             rez = "http://petrobani.ru/";
         }
-        if (s.contains("http://petrobitovki.ru/")){
+        if (s.contains("petrobitovki.ru")){
             rez = "http://petrobitovki.ru/";
         }
-        if (s.contains("http://petro-blok.ru/")){
+        if (s.contains("petro-blok.ru")){
             rez = "http://petro-blok.ru/";
         }
         return rez;
-    }
-
-    public void printClients(){
-        System.out.println(clients);
-    }
-
-    public void printClientList(){
-        System.out.println(clientsList);
     }
 
     public ArrayList<Client> getClientsList() {

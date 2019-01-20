@@ -18,7 +18,14 @@ public class JsonParser {
     }
 
     private void parse(Map m, String s){
-        if (s.startsWith("[")) {System.out.println("json must start with {");}
+        s = "[no]";
+        if (s.startsWith("[")) {//System.out.println("json must start with {");
+            try {
+                throw new inStringException("json must start with {");
+            } catch (inStringException e) {
+                e.printStackTrace();
+            }
+        }
         else {
             System.out.println(s);
             String string = s.substring(1, s.length()-1);
@@ -52,5 +59,11 @@ public class JsonParser {
         }
         sb.append("}");
         return sb.toString();
+    }
+
+    class inStringException extends Exception{
+        public inStringException(String text){
+            super(text);
+        }
     }
 }
